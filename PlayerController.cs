@@ -19,9 +19,9 @@ public class PlayerController : MonoBehaviour {
 		transform.Translate(Vector2.right * velocity * Time.deltaTime);
 
 		if(transform.position.x < -halfScreenWidth-halfPlayerWidth)
-			transform.position = new Vector2(halfScreenWidth,transform.position.y);
+			transform.position = new Vector2(halfScreenWidth+halfPlayerWidth,transform.position.y);
 		if(transform.position.x > halfScreenWidth+halfPlayerWidth)
-			transform.position = new Vector2(-halfScreenWidth,transform.position.y);
+			transform.position = new Vector2(-halfScreenWidth-halfPlayerWidth,transform.position.y);
 	}
 
 	void OnTriggerEnter2D(Collider2D col){
