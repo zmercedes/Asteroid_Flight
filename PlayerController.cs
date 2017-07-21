@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col){
 		if(col.gameObject.tag == "asteroid"){
-			Debug.Log("Crash!");
+			Debug.Log("Crash! " + Time.time);
 			Destroy(this.gameObject);
 		}
 	}
