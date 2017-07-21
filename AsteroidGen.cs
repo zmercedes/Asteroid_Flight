@@ -6,6 +6,7 @@ public class AsteroidGen : MonoBehaviour {
 
 	public GameObject asteroid;
 	public float secondsBetweenGen = 1f;
+	public float decreasingGenTime = 30;
 	float xCoord;
 	float halfScreenWidth;
 	float halfScreenHeight;
@@ -22,14 +23,13 @@ public class AsteroidGen : MonoBehaviour {
 		halfPlayerHeight = asteroid.transform.localScale.y /2f;
 	}
 	
+	// add increasing difficulty
 	void Update () {
 		if(Time.time > nextGenTime){
 			xCoord = Random.Range(halfPlayerWidth-halfScreenWidth,halfScreenWidth-halfPlayerWidth);
 			position = new Vector2(xCoord,halfScreenHeight+halfPlayerHeight);
 			Instantiate(asteroid, position, Quaternion.identity, transform);
 			nextGenTime += secondsBetweenGen;
-			if(Time.time > 20)
-				secondsBetweenGen = .5f;
 		}
 	}
 }
