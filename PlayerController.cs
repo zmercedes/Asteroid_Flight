@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour {
 	public float moveSpeed = 6f;
 	float halfScreenWidth;
 	float halfPlayerWidth;
+	public event System.Action OnPlayerDeath;
 
 	void Start () {	
 		halfPlayerWidth = transform.localScale.x / 2f;
@@ -26,7 +27,9 @@ public class PlayerController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col){
 		if(col.gameObject.tag == "asteroid"){
-			Debug.Log("Crash! " + Time.time);
+		//	Debug.Log("Crash! " + Time.time);
+			if(OnPlayerDeath != null)
+				OnPlayerDeath();
 			Destroy(this.gameObject);
 		}
 	}

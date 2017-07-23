@@ -37,7 +37,8 @@ public class AsteroidGen : MonoBehaviour {
 	}
 
 	void FixedUpdate(){
-		if(Time.time == nextDecreaseTime && secondsBetweenGen > .25){
+		if(Time.timeSinceLevelLoad == nextDecreaseTime && secondsBetweenGen > .25){
+			print("Time decreased! " + Time.timeSinceLevelLoad);
 			secondsBetweenGen -= decreaseGenBy;
 			nextDecreaseTime += decreasingGenTime;
 		}
