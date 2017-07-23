@@ -26,7 +26,6 @@ public class AsteroidGen : MonoBehaviour {
 		halfPlayerHeight = asteroid.transform.localScale.y /2f;
 	}
 	
-	// add increasing difficulty
 	void Update () {
 		if(Time.time > nextGenTime){
 			xCoord = Random.Range(halfPlayerWidth-halfScreenWidth,halfScreenWidth-halfPlayerWidth);
@@ -36,6 +35,7 @@ public class AsteroidGen : MonoBehaviour {
 		} 
 	}
 
+	// have to rework difficulty
 	void FixedUpdate(){
 		if(Time.timeSinceLevelLoad == nextDecreaseTime && secondsBetweenGen > .25){
 			print("Time decreased! " + Time.timeSinceLevelLoad);
